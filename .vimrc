@@ -13,6 +13,7 @@ Bundle 'vim-scripts/Vimerl'
 Bundle 'vim-scripts/molokai'
 Bundle 'vim-scripts/fugitive.vim'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'SuperTab'
 
 filetype plugin indent on	" required! 
 
@@ -69,3 +70,6 @@ autocmd BufWritePre *.{erl,hrl,py,rb,js,html} :%s/\s\+$//e
 
 "" Erlang Code Completion
 let g:erlangManPath='/usr/local/lib/erlang/man'
+
+"" Python Mode, capital 'B' instead of 'b'
+let g:pymode_breakpoint_key = '<leader>B'
