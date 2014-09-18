@@ -9,11 +9,10 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'vim-scripts/Command-T'
 Bundle 'vim-scripts/Python-mode-klen'
-Bundle 'vim-scripts/Vimerl'
 Bundle 'vim-scripts/molokai'
 Bundle 'vim-scripts/fugitive.vim'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'SuperTab'
+Bundle 'jimenezrick/vimerl'
 
 filetype plugin indent on	" required! 
 
@@ -51,8 +50,8 @@ set undolevels=1000             " maximum number of changes that can be undone
 set undoreload=10000            " maximum number of lines to save for undo on a buffer reload
 
 "" Powerline (install a patched font e.g. https://gist.github.com/1595572)
-let g:Powerline_symbols = 'fancy'
-set laststatus=2
+" let g:Powerline_symbols = 'fancy'
+" set laststatus=2
 
 "" mappings
 let mapleader = ","
@@ -72,4 +71,5 @@ autocmd BufWritePre *.{erl,hrl,py,rb,js,html} :%s/\s\+$//e
 let g:erlangManPath='/usr/local/lib/erlang/man'
 
 "" Python Mode, capital 'B' instead of 'b'
-let g:pymode_breakpoint_key = '<leader>B'
+let g:pymode_breakpoint = 0
+let g:pymode_breakpoint_bind = '<leader>B'
