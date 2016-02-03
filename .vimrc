@@ -11,8 +11,19 @@ Bundle 'vim-scripts/Command-T'
 Bundle 'vim-scripts/Python-mode-klen'
 Bundle 'vim-scripts/molokai'
 Bundle 'vim-scripts/fugitive.vim'
+Bundle 'stulzer/heroku-colorscheme'
 Bundle 'SuperTab'
+Bundle 'badwolf'
 Bundle 'jimenezrick/vimerl'
+Bundle 'scrooloose/syntastic'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/vimshell.vim'
+Bundle 'vim-coffee-script'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'bling/vim-airline'
 
 filetype plugin indent on	" required! 
 
@@ -23,7 +34,7 @@ set encoding=utf-8              " use utf8 as default encoding
 set visualbell                  " use visualbell instead of audiobell
 set nu                          " set linenumbers
 set cul                         " highlight current line
-colorscheme molokai             " set colorscheme
+colorscheme heroku
 set showcmd                     " display incomplete commands
 
 "" Whitespace
@@ -49,13 +60,26 @@ set undofile                    " enable persistent undo
 set undolevels=1000             " maximum number of changes that can be undone
 set undoreload=10000            " maximum number of lines to save for undo on a buffer reload
 
-"" Powerline (install a patched font e.g. https://gist.github.com/1595572)
-" let g:Powerline_symbols = 'fancy'
-" set laststatus=2
+"" Ideal column length suitable for many environments
+set colorcolumn=80
+set textwidth=80
+
+noremap Q gq
 
 "" mappings
 let mapleader = ","
 map <leader>t :CommandT<cr>
+
+"" powerline
+let g:airline_powerline_fonts = 1
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+if !exists('g:airline_symbols')
+      let g:airline_symbols = {}
+  endif
+  let g:airline_symbols.space = "\ua0"
+
+set guifont=Liberation\ Mono\ for\ Powerline
 
 "" window switch
 let i = 1
@@ -73,3 +97,6 @@ let g:erlangManPath='/usr/local/lib/erlang/man'
 "" Python Mode, capital 'B' instead of 'b'
 let g:pymode_breakpoint = 0
 let g:pymode_breakpoint_bind = '<leader>B'
+
+"" Syntastic
+let g:syntastic_erlang_checkers=['syntaxerl']
