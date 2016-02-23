@@ -1,29 +1,35 @@
 set nocompatible		" be iMproved
 filetype off			" required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required
-Bundle 'gmarik/vundle'
-Bundle 'vim-scripts/Command-T'
-Bundle 'vim-scripts/Python-mode-klen'
-Bundle 'vim-scripts/molokai'
-Bundle 'vim-scripts/fugitive.vim'
-Bundle 'stulzer/heroku-colorscheme'
-Bundle 'SuperTab'
-Bundle 'badwolf'
-Bundle 'jimenezrick/vimerl'
-Bundle 'scrooloose/syntastic'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'Shougo/vimshell.vim'
-Bundle 'vim-coffee-script'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'bling/vim-airline'
+Plugin 'gmarik/vundle'
+Plugin 'vim-scripts/Command-T'
+Plugin 'vim-scripts/Python-mode-klen'
+Plugin 'vim-scripts/molokai'
+Plugin 'vim-scripts/fugitive.vim'
+Plugin 'stulzer/heroku-colorscheme'
+Plugin 'SuperTab'
+Plugin 'badwolf'
+Plugin 'jimenezrick/vimerl'
+Plugin 'scrooloose/syntastic'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/vimshell.vim'
+Plugin 'vim-coffee-script'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'bling/vim-airline'
+Plugin 'lambdalisue/vim-fullscreen'
+Plugin 'joonty/vdebug'
+Plugin 'scrooloose/nerdtree'
+Plugin 'shawncplus/phpcomplete'
+
+call vundle#end()
 
 filetype plugin indent on	" required! 
 
@@ -80,6 +86,11 @@ if !exists('g:airline_symbols')
   let g:airline_symbols.space = "\ua0"
 
 set guifont=Liberation\ Mono\ for\ Powerline
+
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
 
 "" window switch
 let i = 1
