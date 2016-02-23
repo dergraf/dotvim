@@ -27,7 +27,9 @@ Plugin 'bling/vim-airline'
 Plugin 'lambdalisue/vim-fullscreen'
 Plugin 'joonty/vdebug'
 Plugin 'scrooloose/nerdtree'
-Plugin 'shawncplus/phpcomplete'
+Plugin 'shawncplus/phpcomplete.vim'
+"" Plugin 'xolox/vim-easytags'
+"" Plugin 'xolox/vim-misc'     " used by vim-easytags
 
 call vundle#end()
 
@@ -70,6 +72,10 @@ set undoreload=10000            " maximum number of lines to save for undo on a 
 set colorcolumn=80
 set textwidth=80
 
+"" EasyTags Configuration
+"" set tags=./tags
+"" let g:easytags_dynamic_files = 1
+
 noremap Q gq
 
 "" mappings
@@ -111,3 +117,6 @@ let g:pymode_breakpoint_bind = '<leader>B'
 
 "" Syntastic
 let g:syntastic_erlang_checkers=['syntaxerl']
+
+"" VDebug
+let g:vdebug_options["break_on_open"] = 0
