@@ -10,7 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/Command-T'
 Plugin 'vim-scripts/Python-mode-klen'
 Plugin 'vim-scripts/molokai'
-Plugin 'vim-scripts/fugitive.vim'
+Plugin 'tpope/vim-fugitive'
 Plugin 'stulzer/heroku-colorscheme'
 Plugin 'joshdick/onedark.vim'
 Plugin 'SuperTab'
@@ -109,12 +109,44 @@ nmap <leader>qc :Phpcs<cr>
 set laststatus=2
 let g:lightline = {
       \ 'colorscheme': 'wombat',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"":""}',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'LightLineFugitive',
+      \   'readonly': 'LightLineReadonly',
+      \   'modified': 'LightLineModified'
       \ },
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }
+function! LightLineModified()
+    if &filetype == "help"
+        return ""
+    elseif &modified
+        return "+"
+    elseif &modifiable
+        return ""
+    else
+        return ""
+    endif
+endfunction
+
+function! LightLineReadonly()
+    if &filetype == "help"
+        return ""
+    elseif &readonly
+        return ""
+    else
+        return ""
+    endif
+endfunction
+
+function! LightLineFugitive()
+    return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
+
 
 set guifont=Liberation\ Mono\ for\ Powerline
 
