@@ -142,3 +142,7 @@ let g:pymode_breakpoint_bind = '<leader>B'
 
 "" Syntastic
 let g:syntastic_erlang_checkers=['syntaxerl']
+
+"" VDebug
+"" let g:vdebug_options["break_on_open"] = 0
+let g:vdebug_options['path_maps'] = {"/var/www/my.cyon.tld": "/home/ag/Projects/git/my-cyon"}
