@@ -12,6 +12,7 @@ Plugin 'vim-scripts/Python-mode-klen'
 Plugin 'vim-scripts/molokai'
 Plugin 'vim-scripts/fugitive.vim'
 Plugin 'stulzer/heroku-colorscheme'
+Plugin 'joshdick/onedark.vim'
 Plugin 'SuperTab'
 Plugin 'badwolf'
 Plugin 'jimenezrick/vimerl'
@@ -23,11 +24,19 @@ Plugin 'vim-coffee-script'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'bling/vim-airline'
+Plugin 'itchyny/lightline.vim'
 Plugin 'lambdalisue/vim-fullscreen'
 Plugin 'joonty/vdebug'
 Plugin 'scrooloose/nerdtree'
 Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'KabbAmine/zeavim.vim'
+Plugin 'rking/ag.vim'
+Plugin 'unite.vim'
+Plugin 'ack.vim'
+Plugin 'Tagbar'
+Plugin 'AutoTag'
+Plugin 'ctrlp.vim'
+Plugin 'phpqa'
 "" Plugin 'xolox/vim-easytags'
 "" Plugin 'xolox/vim-misc'     " used by vim-easytags
 
@@ -42,7 +51,7 @@ set encoding=utf-8              " use utf8 as default encoding
 set visualbell                  " use visualbell instead of audiobell
 set nu                          " set linenumbers
 set cul                         " highlight current line
-colorscheme heroku
+colorscheme onedark
 set showcmd                     " display incomplete commands
 
 "" Whitespace
@@ -81,15 +90,25 @@ noremap Q gq
 "" mappings
 let mapleader = ","
 map <leader>t :CommandT<cr>
+nmap <F8> :TagbarToggle<CR>
+nmap <F9> :NERDTreeToggle<CR>
+nmap <leader>f :Unite file<cr>
+
+"" phpqa
+let g:phpqa_codesniffer_autorun = 0
+nmap <leader>qc :Phpcs<cr>
+
 
 "" powerline
-let g:airline_powerline_fonts = 1
 set laststatus=2
-let g:airline#extensions#tabline#enabled = 1
-if !exists('g:airline_symbols')
-      let g:airline_symbols = {}
-  endif
-  let g:airline_symbols.space = "\ua0"
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"":""}',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
 
 set guifont=Liberation\ Mono\ for\ Powerline
 
