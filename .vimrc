@@ -6,7 +6,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle
 " required
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/Command-T'
 Plugin 'vim-scripts/Python-mode-klen'
 Plugin 'vim-scripts/molokai'
@@ -43,6 +43,12 @@ Plugin 'phpqa'
 call vundle#end()
 
 filetype plugin indent on	" required! 
+
+"" no menu in gvim
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
 
 set t_Co=256			        " we use a terminal that supports 256 colors
 set hidden                      " switching unwritten buffers
@@ -136,6 +142,3 @@ let g:pymode_breakpoint_bind = '<leader>B'
 
 "" Syntastic
 let g:syntastic_erlang_checkers=['syntaxerl']
-
-"" VDebug
-let g:vdebug_options["break_on_open"] = 0
