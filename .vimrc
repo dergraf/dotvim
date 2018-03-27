@@ -18,10 +18,13 @@ Plug 'Shougo/denite.nvim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 
+Plug 'ajmwagar/vim-deus'
+Plug 'sotte/presenting.vim'
+
 " Initialize plugin system
 call plug#end()
 
-colorscheme compot
+colorscheme deus
 
 nnoremap <C-p> :DeniteProjectDir file_rec line<cr>
 
@@ -41,6 +44,8 @@ set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
+set number
+
 "" automatic remove all trailing whitespaces
 autocmd BufWritePre *.{erl,hrl,py,rb,js,html} :%s/\s\+$//e
 
@@ -54,3 +59,4 @@ autocmd BufRead,BufNewFile *.{ex,exs} setlocal autoread
 
 let g:alchemist_tag_map = '<C-]>'
 let g:alchemist_tag_stack_map = '<C-[>'
+let g:alchemist#elixir_erlang_src = '/home/graf/Projects/elixir-source'
