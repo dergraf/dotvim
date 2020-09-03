@@ -1,9 +1,10 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'valloric/youcompleteme'
+"Plug 'valloric/youcompleteme'
 
 Plug 'vim-erlang/vim-erlang-runtime'
 Plug 'vim-erlang/vim-erlang-compiler'
+Plug 'vim-erlang/vim-erlang-skeletons'
 " Erlang Friendly Colorscheme
 Plug 'vim-erlang/vim-compot'
 
@@ -13,7 +14,10 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'vim-airline/vim-airline'
 
-Plug 'Shougo/denite.nvim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'mrk21/yaml-vim'
+
 
 Plug 'elixir-editors/vim-elixir'
 Plug 'slashmili/alchemist.vim'
@@ -21,16 +25,16 @@ Plug 'slashmili/alchemist.vim'
 Plug 'ajmwagar/vim-deus'
 Plug 'sotte/presenting.vim'
 
+Plug 'tpope/vim-vinegar'
+
+Plug 'vimwiki/vimwiki'
+
 " Initialize plugin system
 call plug#end()
 
 colorscheme deus
 
-nnoremap <C-p> :DeniteProjectDir file_rec line<cr>
-
-nnoremap <C-space> :DeniteProjectDir grep:.<cr>
-
-nnoremap <space>s :Denite buffer<cr>
+nnoremap <C-p> :Files<cr>
 
 " Whitespace
 set wrap                        " wrap lines
@@ -60,3 +64,20 @@ autocmd BufRead,BufNewFile *.{ex,exs} setlocal autoread
 let g:alchemist_tag_map = '<C-]>'
 let g:alchemist_tag_stack_map = '<C-[>'
 let g:alchemist#elixir_erlang_src = '/home/graf/Projects/elixir-source'
+
+" add yaml stuffs
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" Mapping selecting mappings
+let mapleader = ","
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Vim Wiki
+let wiki = {}
+let wiki.path = '~/vimwiki/'
+let wiki.syntax = 'markdown'
+let wiki.ext = '.md'
+let g:vimwiki_list = [wiki]
